@@ -1,0 +1,68 @@
+@use "sass:map";
+
+@use "../abstracts/" as *;
+
+.flow-spacing {
+  --_flow-spacing: var(--flow-spacing, #{$flow-spacing-default});
+
+  & > *:where(:not(:first-child)) {
+    margin-top: var(--_flow-spacing);
+  }
+}
+
+.inline-spacing {
+  padding-inline: $inline-spacing;
+}
+
+.block-spacing {
+  padding-block: $block-spacing;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+// Generate gap utility classes
+@each $size-name, $size-value in $sizes {
+  .gap-#{$size-name} {
+    gap: $size-value;
+  }
+
+  .gap-row-#{$size-name} {
+    row-gap: $size-value;
+  }
+
+  .gap-col-#{$size-name} {
+    column-gap: $size-value;
+  }
+}
+
+// Generate padding and margin utility classes
+$spacing: (
+  "property": (
+    "padding": "p",
+    "margin": "m",
+  ),
+  "logical-property": (
+    "": "",
+    "inline": "i",
+    "inline-start": "is",
+    "inline-end": "ie",
+    "block": "b",
+    "block-start": "bs",
+    "block-end": "be",
+  ),
+);
+
+@each $property-name, $property-value in map.get($spacing, "property") {
+  @each $logical-property-name, $logical-property-value in map.get($spacing, "logical-property") {
+    $property-shorthand: join($property-value, $logical-property-value);
+    $new-property-name: join($property-name, $logical-property-name);
+
+    @each $size-name, $size-value in $sizes {
+      .#{$property-shorthand}-#{$size-name} {
+        #{$new-property-name}: $size-value;
+      }
+    }
+  }
+}

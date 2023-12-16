@@ -1,0 +1,118 @@
+@use "colors" as *;
+@use "sizes" as *; 
+@use "typography" as *;
+
+// Contextual properties
+$border-radius-1: 0.5rem;
+$border-radius-2: 1rem;
+$border-radius-3: 1.5rem;
+$border-radius-4: 2rem;
+
+// Layout
+$flex-gap-default: 1rem;
+$grid-gap-default: 1rem;
+
+$grid-min-column-size-default: null;
+
+$grid-padding-inline: 2rem;
+$grid-breakout-max-width: 70rem;
+$grid-content-max-width: 60rem;
+
+$container-max-width-default: 60rem;
+$container-max-width-small: 40rem;
+$container-max-width-large: 80rem;
+$container-padding-inline: 1.5rem;
+
+$inline-spacing: clamp(2rem, 5svw + 1rem, 4rem);
+$block-spacing: clamp(2rem, 5svw + 1rem, 4rem); 
+$flow-spacing-default: 1em;
+
+// Typography
+$letter-spacing-default: 0.25em;
+$letter-spacing-small: 0.125em;
+$letter-spacing-large: 0.5em;
+
+// Theme
+$active-theme: "dark";
+
+// Body
+$body-font-family: var(--ff-body);
+$body-font-weight: var(--fw-body);
+$body-font-size: var(--fs-body);
+$body-line-height: 1.5;
+$body-color: hsl(var(--c-body));
+
+$body-background-color: hsl(var(--bgc-body));
+
+// General links
+$body-link-font-weight: null;
+$body-link-text-decoration: none;
+$body-link-color: null;
+$body-link-color-hover: null;
+
+// Headings
+$heading-font-family: null;
+$heading-font-weight: null;
+$heading-line-height: 1;
+$heading-text-transform: null;
+$heading-color: null;
+
+$heading-1-font-size: var(--fs-h1);
+$heading-1-color: hsl(var(--c-h1));
+
+$heading-2-font-size: var(--fs-h2);
+$heading-2-color: hsl(var(--c-h2));
+
+$heading-3-font-size: var(--fs-h3);
+$heading-3-color: null;
+
+$heading-4-font-size: var(--fs-h4);
+$heading-4-color: null;
+
+// Navigation
+$nav-position: null;
+
+$nav-color: null;
+$nav-link-color: null;
+$nav-link-color-hover: null;
+
+$nav-background-color: null;
+
+$nav-list-style: null;
+
+// Cards
+$card-padding: null;
+$card-border: null;
+$card-border-radius: null;
+
+$card-color: null;
+
+$card-background-color: null;
+
+// Buttons
+$button-padding: null;
+$button-border: null;
+$button-border-radius: null;
+
+$button-font-weight: null;
+$button-font-size: null;
+$button-color: null;
+$button-color-hover: null;
+
+$button-background-color: hsl(var(--bgc-button-submit));
+$button-background-color-hover: hsl(var(bgc-button-submit) / 0.5);
+
+// Ctas
+$cta-padding: 0.5rem 2rem;
+$cta-border: null;
+$cta-border-radius: 100svw;
+
+$cta-font-weight: var(--fw-cta);
+$cta-font-size: null;
+$cta-color: hsl(var(--c-cta));
+$cta-color-hover: null;
+
+$cta-background-color: null;
+$cta-background-color-hover: null;
+
+// Forms

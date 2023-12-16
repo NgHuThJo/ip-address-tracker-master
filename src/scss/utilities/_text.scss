@@ -1,0 +1,25 @@
+@use "../abstracts/" as *;
+
+.letter-spacing {
+    letter-spacing: $letter-spacing-default;
+    
+    &--small {
+        letter-spacing: $letter-spacing-small;
+    }
+
+    &--large {
+        letter-spacing: $letter-spacing-large;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.capital-case {
+    text-transform: capitalize;
+}
+
+.upper-case {
+    text-transform: uppercase;
+}

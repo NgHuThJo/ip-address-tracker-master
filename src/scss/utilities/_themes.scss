@@ -1,0 +1,12 @@
+@use "../abstracts/" as *;
+
+// Generate theme classes
+@each $theme-name, $theme-map in $theme-color {
+    .#{$theme-name} {
+        @each $property-name, $property-map in $theme-map {
+            @each $functional-name, $property-value in $property-map {
+                --#{get-color-property($property-name)}-#{$functional-name}: #{$property-value};
+            }
+        }
+    }
+}

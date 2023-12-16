@@ -1,0 +1,11 @@
+$display-list:  "block", "inline-block", 
+                "inline", "inline-block", 
+                "flex", "inline-flex", 
+                "grid", "inline-grid", 
+                "flow-root";
+
+@each $display-name in $display-list {
+    .#{$display-name} {
+        display: #{$display-name};
+    }
+}

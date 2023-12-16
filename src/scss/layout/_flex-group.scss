@@ -1,0 +1,11 @@
+@use "../abstracts/" as *;
+
+.flex-group {
+    --_flex-gap: var(--flex-gap, #{$flex-gap-default});
+
+    @extend %flex-base;
+
+    gap: var(--_flex-gap);
+    flex-wrap: wrap;
+    width: fit-content;
+}

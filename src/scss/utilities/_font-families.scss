@@ -1,0 +1,9 @@
+@use "sass:map";
+
+@use "../abstracts/" as *;
+
+@each $family-name, $family-value in map.get($utility-font, "family") {
+    .ff-#{$family-name} {
+        font-family: $family-value;
+    }
+}

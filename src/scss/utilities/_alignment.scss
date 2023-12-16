@@ -1,0 +1,45 @@
+@use "sass:map";
+
+@use "../abstracts/" as *;
+
+// Generate Flex and Grid alignment utility classes
+$alignment: (
+    "prefix": (
+    "justify": "j",
+    "align": "a",
+    "place": "pl",
+    ),
+    "suffix": (
+        "items": "i",
+        "content": "c",
+        "self": "s",
+    ),
+    "content": (
+        "between": "space-between",
+        "evenly": "space-evenly",
+        "around": "space-around",
+    ),
+);
+
+$alignment-property-value: "start", "center", "end", "stretch";
+
+@each $prefix-name, $prefix-value in map.get($alignment, "prefix") {
+    @each $suffix-name, $suffix-value in map.get($alignment, "suffix") {
+        $property-shorthand: join($prefix-value, $suffix-value);
+        $new-property-name: join($prefix-name, $suffix-name);
+
+        @each $value in $alignment-property-value {
+            .#{$property-shorthand}-#{$value} {
+                #{$new-property-name}: #{$value};
+            }
+        }
+
+        @if($suffix-name == "content") {
+            @each $alignment-content-name, $alignment-content-value in map.get($alignment, "content") {
+                .#{$property-shorthand}-#{$alignment-content-name} {
+                    #{$new-property-name}: #{$alignment-content-value};
+                }
+            }
+        }
+    }
+}

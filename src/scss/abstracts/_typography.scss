@@ -1,0 +1,41 @@
+@use "sizes" as *;
+
+// Contextual font properties
+$-ff-rubik: #{"\"Rubik\", sans-serif"};
+
+// Default font weights
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-heavy: 900;
+
+// Font map for generating font utility classes
+$utility-font: (
+    "family": (
+        "rubik": $-ff-rubik,
+    ),
+);
+
+// Font map for generating custom font properties
+$contextual-font: (
+    "family": (
+        "body": $-ff-rubik,
+    ),
+    "size": (
+        "body": 1.125rem,
+        "h1": 1.5rem,
+        "h2": 0.6875rem,
+        "location-info": 1.25rem,
+    ),
+    "weight": (
+        "body": $font-weight-normal,
+        "h1": $font-weight-bold,
+        "h2": $font-weight-medium,
+        "location-info": $font-weight-bold,
+    ),
+);

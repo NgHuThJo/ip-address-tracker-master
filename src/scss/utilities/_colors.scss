@@ -1,0 +1,14 @@
+@use "../abstracts/" as *;
+
+// Generate color utility classes
+@each $color-name, $color-map in $utility-color {
+    @each $color-intensity, $color-value in $color-map {
+        .c-#{$color-name}-#{$color-intensity} {
+            color: hsl($color-value);
+        }
+
+        .bgc-#{$color-name}-#{$color-intensity} {
+            background-color: hsl($color-value);
+        }        
+    }
+}

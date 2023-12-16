@@ -1,0 +1,18 @@
+@use "../abstracts/" as *;
+
+.cta {
+    padding: $cta-padding;
+    border: $cta-border;
+    border-radius: $cta-border-radius;
+    font: {
+        weight: $cta-font-weight;
+        size: $cta-font-size;
+    }
+    color: $cta-color;
+    background-color: $cta-background-color;
+
+    &:where(:hover, :focus) {
+        color: $cta-color-hover;
+        background-color: $cta-background-color-hover;
+    }
+}

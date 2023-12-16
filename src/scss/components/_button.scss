@@ -1,0 +1,18 @@
+@use "../abstracts/" as *;
+
+.button {
+    padding: $button-padding;
+    border: $button-border;
+    border-radius: $button-border-radius;
+    font: {
+        weight: $button-font-weight;
+        size: $button-font-size;
+    }
+    color: $button-color;
+    background-color: $button-background-color;
+
+    &:where(:hover, :focus) {
+        color: $button-color-hover;
+        background-color: $button-background-color-hover;
+    }
+}

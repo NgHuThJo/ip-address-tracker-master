@@ -1,0 +1,19 @@
+@use "../abstracts/" as *;
+
+.container {
+    --_max-width: var(--max-width, #{$container-max-width-default});
+    --_padding-inline: var(--padding-inline, 2 * #{$container-padding-inline});
+
+    max-width: min(100% - var(--_padding-inline), var(--_max-width));
+    // For images to grow beyond their intrinsic size if intrinsic size < max-width
+    min-width: min(100% - var(--_padding-inline), var(--_max-width));
+    margin-inline: auto;
+
+    &--small {
+        --max-width: #{$container-max-width-small};        
+    }
+
+    &--large {
+        --max-width: #{$container-max-width-large};
+    }
+}

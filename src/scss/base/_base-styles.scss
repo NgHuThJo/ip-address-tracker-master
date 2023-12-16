@@ -1,0 +1,72 @@
+@use "../abstracts/" as *;
+
+// Body
+body {
+    font: {
+        family: $body-font-family;
+        weight: $body-font-weight;
+        size: $body-font-size;
+    }
+
+    line-height: $body-line-height;
+    color: $body-color;
+    background-color: $body-background-color;
+}
+
+// Hyperlinks
+a {
+    font-weight: $body-link-font-weight;
+    text-decoration: $body-link-text-decoration;
+    color: $body-link-color;
+
+    &:where(:hover, :focus-within) {
+        color: $body-link-color-hover;
+    }
+}
+
+// Headings
+.h1 {
+    font: {
+        size: $heading-1-font-size;
+    }
+
+    color: $heading-1-color;
+}
+
+.h2 {
+    font: {
+        size: $heading-2-font-size;
+    }
+
+    color: $heading-2-color;
+}
+
+.h3 {
+    font: {
+        size: $heading-3-font-size;
+    }
+
+    color: $heading-3-color;
+}
+
+.h4 {
+    font: {
+        size: $heading-4-font-size;
+    }
+
+    color: $heading-4-color;
+}
+
+.h1,
+.h2,
+.h3,
+.h4 {
+    font: {
+        family: $heading-font-family;
+        weight: $heading-font-weight;
+    }
+    
+    line-height: $heading-line-height;
+    text-transform: $heading-text-transform;
+    color: $heading-color;
+}

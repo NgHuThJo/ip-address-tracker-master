@@ -1,0 +1,38 @@
+@use "../abstracts/" as *;
+
+.macro-grid {
+    --grid-padding-inline: #{$grid-padding-inline};
+    --grid-breakout-max-width: #{$grid-breakout-max-width};    
+    --grid-content-max-width: #{$grid-content-max-width};
+
+    --grid-breakout-column-width: calc((var(--grid-breakout-max-width) - var(--grid-content-max-width)) / 2);
+
+    @include grid;
+
+    grid-template-columns:
+        [full-width-start breakout-left-start] minmax(var(--grid-padding-inline), 1fr)
+        [breakout-start breakout-right-start] minmax(0, var(--grid-breakout-column-width))
+        [content-start] min(100% - 2 * var(--grid-padding-inline), var(--grid-content-max-width)) [content-end]
+        minmax(0, var(--grid-breakout-column-width)) [breakout-end breakout-left-end]
+        minmax(var(--grid-padding-inline), 1fr) [full-width-end breakout-right-end];
+}
+
+.full-width {
+    grid-column: full-width;
+}
+
+.breakout {
+    grid-column: breakout;
+}
+
+.breakout-left {
+    grid-column: breakout-left;
+}
+
+.breakout-right {
+    grid-column: breakout-right;
+}
+
+.content {
+    grid-column: content;
+}

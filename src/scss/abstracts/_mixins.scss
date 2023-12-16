@@ -1,0 +1,34 @@
+@use "breakpoints" as *;
+@use "extends" as *;
+
+// Basic flexbox mixin
+@mixin flex($direction: null, $justify: null, $align: null, $gap: null) {
+    @extend %flex-base;
+
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+// Basic grid mixin
+@mixin grid($justify: null, $align: null, $gap: null) {
+    @extend %grid-base;
+    
+    justify-items: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+// Breakpoint mixins
+@mixin min-query($bp) {
+    @media (min-width: map-get($breakpoints, $bp)) {
+        @content;
+    }
+}
+
+@mixin max-query($bp) {
+    @media (max-width: map-get($breakpoints, $bp)) {
+        @content;
+    }
+}

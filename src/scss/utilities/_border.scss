@@ -1,0 +1,39 @@
+@use "../abstracts/" as *;
+
+// Border radii
+.bd-rs-1 {
+    border-radius: $border-radius-1;
+}
+
+.bd-rs-2 {
+    border-radius: $border-radius-2;
+}
+
+.bd-rs-3 {
+    border-radius: $border-radius-3;
+}
+
+.bd-rs-4 {
+    border-radius: $border-radius-4;
+}
+
+// Round corners
+.rounded {
+    border-radius: 50%;
+}
+
+.rounded-top {
+    border-radius: 100svw 100svw 0 0;
+}
+
+.rounded-bottom {
+    border-radius: 0 0 100svw 100svw;
+}
+
+.rounded-left {
+    border-radius: 100svw 0 0 100svw;
+}
+
+.rounded-right {
+    border-radius: 0 100svw 100svw 0;
+}

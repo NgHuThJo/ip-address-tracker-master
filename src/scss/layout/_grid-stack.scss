@@ -1,0 +1,12 @@
+@use "../abstracts/" as *;
+
+.grid-stack {
+    @extend %grid-base;
+
+    grid-template-columns: 1fr;
+
+    & > * {
+        grid-row:  1 / -1;
+        grid-column: 1 / -1;
+    }
+}

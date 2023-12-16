@@ -1,0 +1,13 @@
+@use "../abstracts/" as *;
+
+.auto-grid {
+    --_grid-column-count: var(--grid-column-count, auto-fit);
+    // No intrinsic sizing keywords with auto-fit or auto-fill (e.g. min-content, max-content, fit-content...)
+    --_grid-min-column-size: var(--grid-min-column-size, #{$grid-min-column-size-default});
+    --_grid-gap: var(--grid-gap, #{$grid-gap-default});
+
+    @extend %grid-base;
+
+    grid-template-columns: repeat(var(--_grid-column-count), minmax(min(var(--_grid-min-column-size), 100%), 1fr));
+    gap: var(--_grid-gap);
+}

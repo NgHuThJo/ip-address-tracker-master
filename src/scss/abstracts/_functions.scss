@@ -1,0 +1,46 @@
+@use "sass:map";
+
+// Color property name generator
+@function get-color-property($property-name) {
+    $color-abbreviations: (
+        "color": "c",
+        "background-color": "bgc",
+    );
+
+    @if(map.get($color-abbreviations, $property-name) != null) {
+        @return map.get($color-abbreviations, $property-name);
+    } @else {
+        @error "Invalid property.";
+    }
+}
+
+// Font property name generator
+@function get-font-property($property-name) {
+    $font-abbreviations: (
+        "family": "ff",
+        "weight": "fw",
+        "size": "fs",
+    );
+
+    @if(map.get($font-abbreviations, $property-name) != null) {
+        @return map.get($font-abbreviations, $property-name);
+    } @else {
+        @error "Invalid property.";
+    }
+}
+
+// String concatenation function
+@function join($prefix, $suffix, $seperator: "-") {
+    @if($prefix == "" or $suffix == "") {
+        @if($prefix != "") {
+            @return $prefix;
+        } @else if($suffix != "") {
+            @return $suffix;
+        } @else {
+            @error "Both strings are empty.";
+            @return "";
+        }
+    }
+    
+    @return #{$prefix}#{$seperator}#{$suffix};
+}

@@ -1,0 +1,14 @@
+@use "../abstracts/" as *;
+
+.even-cols {
+    --_grid-gap: var(--grid-gap, #{$grid-gap-default});
+
+    @extend %grid-base;
+
+    gap: var(--_grid-gap);
+
+    @include min-query("s") {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+    }
+}

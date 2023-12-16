@@ -1,0 +1,11 @@
+@use "../abstracts/" as *;
+
+.flex {
+    @extend %flex-base;
+}
+
+.flex-col {
+    @extend %flex-base;
+
+    flex-direction: column;
+}

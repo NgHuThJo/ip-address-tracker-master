@@ -1,0 +1,110 @@
+@use "./abstracts/" as *;
+@use "./base/" as *;
+@use "./components/" as *;
+@use "./layout/" as *;
+@use "./utilities/" as *;
+
+// General styles
+body {
+    @include grid;
+
+    grid-template-rows: auto 1fr;
+    position: relative;
+    text-align: center;
+}
+
+picture {
+    img {
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
+.h1 {
+    padding-block: 2rem;
+    font: {
+        weight: var(--fw-h1);
+        size: var(--fs-h1);
+    }
+}
+
+.main {
+    --border-radius: 1rem;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.form {
+    @include grid;
+
+    grid-template-columns: minmax(min-content, 1fr) auto;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+
+    input[type="text"] {
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+#map {
+    z-index: 0;
+}
+
+.wrapper {
+    @include grid;
+
+    gap: 1.25rem;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: var(--border-radius);
+    background-color: hsl(var(--bgc-body));
+
+    h2 {
+        font: {
+            weight: var(--fw-h2);
+            size: var(--fs-h2);
+        }
+        text-transform: uppercase;
+        letter-spacing: 0.0625rem;
+        color: hsl(var(--c-h2));
+    }
+
+    span {
+        font: {
+            weight: var(--fw-location-info);
+            size: var(--fs-location-info);
+        }
+    }
+
+    @include min-query("s") {
+        grid-template-columns: repeat(4, 1fr);
+        text-align: left;
+    }
+}
+
+.info {
+    > :last-child {
+       margin-top: 1rem; 
+    }
+
+    @include min-query("s") {
+        padding-left: 2rem;
+        
+        &:not(:first-child) {
+            border-left: 1px solid hsl(var(--c-border));
+        }
+    }
+}
+
+.button {
+    @include flex(null, center, center);
+
+    min-width: 3.5rem;
+
+    &:hover,
+    &:focus {
+        filter: brightness(150%);
+    }
+}

@@ -1,0 +1,14 @@
+@use "../abstracts/" as *;
+
+.flex-grid {
+    --_flex-gap: var(--flex-gap, #{$flex-gap-default});
+
+    @extend %flex-base;
+    
+    gap: var(--_flex-gap);
+    flex-wrap: wrap;
+
+    & > * {
+        flex-grow: 1;
+    }
+}
