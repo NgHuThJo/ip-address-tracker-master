@@ -2078,6 +2078,7 @@ h6 {
 }
 
 body {
+  --transition-duration: 0.5s;
   grid-template-rows: auto 1fr;
   position: relative;
   text-align: center;
@@ -2156,6 +2157,7 @@ picture img {
   justify-content: center;
   align-items: center;
   min-width: 3.5rem;
+  transition: filter var(--transition-duration);
 }
 .button:hover, .button:focus {
   filter: brightness(150%);

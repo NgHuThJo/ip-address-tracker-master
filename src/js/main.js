@@ -1,6 +1,6 @@
 import { fetchData } from "./fetch.js";
 import { isInputValid } from "./input-validation.js";
-import { setupMap } from "./map.js";
+import { createMap, updateMap } from "./map.js";
 
 function renderData(data) {
     if(!data) {
@@ -38,9 +38,7 @@ function main() {
     let coords = [51.505, -0.09];
     // Form element which contains text input
     const form = document.querySelector(".form");
-    const map = L.map("map", {
-        zoomControl: false,
-    });
+    const map = createMap("map");
     // Check if IP address is valid
     // Word boundary ensures that IP address does not end with "."
     const regex = /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/;
@@ -53,7 +51,7 @@ function main() {
             coords = [data["location"]["lat"], data["location"]["lng"]];
         }
 
-        setupMap(map, coords);
+        updateMap(map, coords);
         renderData(data);
     });
 
@@ -69,7 +67,7 @@ function main() {
             data = await fetchData(apiInfo.baseURL.concat(queryString));
             localStorage.setItem("locationInfo", JSON.stringify(data));
             coords = [data["location"]["lat"], data["location"]["lng"]];
-            setupMap(map, coords);
+            updateMap(map, coords);
             renderData(data);
         }
     });
