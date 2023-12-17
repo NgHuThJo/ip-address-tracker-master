@@ -6,6 +6,8 @@
 
 // General styles
 body {
+    --transition-duration: 0.5s;
+
     @include grid;
 
     grid-template-rows: auto 1fr;
@@ -102,6 +104,7 @@ picture {
     @include flex(null, center, center);
 
     min-width: 3.5rem;
+    transition: filter var(--transition-duration);
 
     &:hover,
     &:focus {

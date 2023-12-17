@@ -1,4 +1,16 @@
-export function setupMap(map, [x, y]) {
+export function createMap(id) {
+    const map = L.map(id, {
+        zoomControl: false,
+    });
+
+    L.control.zoom({
+        position: "bottomleft",
+    }).addTo(map);
+
+    return map;
+}
+
+export function updateMap(map, [x, y]) {
     map.setView([x, y], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -7,8 +19,4 @@ export function setupMap(map, [x, y]) {
     }).addTo(map);
 
     L.marker([x,y]).addTo(map);
-
-    L.control.zoom({
-        position: "bottomleft",
-    }).addTo(map);
 }
